@@ -5,13 +5,13 @@ import streamlit as st
 import snowflake.connector
 
 conn = snowflake.connector.connect(
-    user=st.secrets["snowflake"]["rasi"],
-    password=st.secrets["snowflake"]["S@njay_ram2007"],
-    account=st.secrets["snowflake"]["SYJEZGI-VVB98369"],
-    warehouse=st.secrets["snowflake"]["COMPUTE_WH"],
-    database=st.secrets["snowflake"]["TEST_DB"],
-    schema=st.secrets["snowflake"]["PUBLIC"],
-    role=st.secrets["snowflake"]["ACCOUNT_ADMIN"]
+    user=st.secrets["snowflake"]["user"],
+    password=st.secrets["snowflake"]["password"],
+    account=st.secrets["snowflake"]["account"],
+    warehouse=st.secrets["snowflake"]["warehouse"],
+    database=st.secrets["snowflake"]["database"],
+    schema=st.secrets["snowflake"]["schema"],
+    role=st.secrets["snowflake"]["role"]
 )
 cursor = conn.cursor()
 # Write directly to the app
