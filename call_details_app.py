@@ -50,7 +50,7 @@ if submitted:
             # Convert list to comma-separated string
             diagnoses_str = ", ".join(diagnoses)
 
-            insert_query = f"""
+            insert_query = """
                 INSERT INTO TEST_DB.PUBLIC.mental_health_admissions 
                 (timestamp, name, dob,reason, suicidal, meds, med_list, diagnoses, emotional_state, support, hospitalized, emergency_contact)
                 VALUES (
@@ -69,7 +69,7 @@ if submitted:
                 )
             """
 
-            session.sql(insert_query).collect()
+            cursor.execute(insert_query, values)
             st.success("Your response has been submitted successfully.")
         except Exception as e:
             st.error(f"Failed to insert data: {e}")
