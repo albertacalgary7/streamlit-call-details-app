@@ -19,7 +19,7 @@ from datetime import datetime
 submission_time = datetime.now()
 # st.write("Secrets loaded:", st.secrets.get("snowflake", {})) 
 import pandas as pd
-# cursor.execute("SELECT CURRENT_USER(), CURRENT_ROLE(), CURRENT_TIMESTAMP()")
+cursor.execute("SELECT CURRENT_USER(), CURRENT_ROLE(), CURRENT_TIMESTAMP()")
 
 
 try:
