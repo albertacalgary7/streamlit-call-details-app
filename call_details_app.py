@@ -61,7 +61,7 @@ if submitted:
                     name,
                     dob,
                     reason,
-                    suiccidal,
+                    suicidal,
                     meds,
                     med_list,
                     diagnoses_str,
