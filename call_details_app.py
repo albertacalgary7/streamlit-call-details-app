@@ -25,7 +25,7 @@ cursor.execute("SELECT CURRENT_USER(), CURRENT_ROLE(), CURRENT_TIMESTAMP()")
 
 try:
     df = pd.DataFrame(cursor.fetchall(), columns=[col[0] for col in cursor.description])
-    st.success("Connection successful!")
+    # st.success("Connection successful!")
     #st.dataframe(df)
 except Exception as e:
     st.error(f"Connection failed: {e}")
