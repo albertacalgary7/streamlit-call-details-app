@@ -19,6 +19,7 @@ from datetime import datetime
 submission_time = datetime.now()
 # st.write("Secrets loaded:", st.secrets.get("snowflake", {})) 
 import pandas as pd
+# Following statement is important to establish connection
 cursor.execute("SELECT CURRENT_USER(), CURRENT_ROLE(), CURRENT_TIMESTAMP()")
 
 
@@ -53,22 +54,22 @@ if submitted:
             insert_query = """
                 INSERT INTO TEST_DB.PUBLIC.mental_health_admissions 
                 (timestamp, name, dob,reason, suicidal, meds, med_list, diagnoses, emotional_state, support, hospitalized, emergency_contact)
-                VALUES (
-                    '{submission_time}',
-                    '{name}',
-                    '{dob}',
-                    '{reason}',
-                    '{suicidal}',
-                    '{meds}',
-                    '{med_list}',
-                    '{diagnoses_str}',
-                    {emotional_state},
-                    '{support}',
-                    '{hospitalized}',
-                    '{emergency_contact}'
+                 VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                 """
+                values =(
+                    submission_time,
+                    name,
+                    dob,
+                    reason,
+                    suiccidal,
+                    meds,
+                    med_list,
+                    diagnoses_str,
+                    emotional_state,
+                    support,
+                    hospitalized,
+                    emergency_contact
                 )
-            """
-
             cursor.execute(insert_query, values)
             conn.commit()
             st.success("Your response has been submitted successfully.")
