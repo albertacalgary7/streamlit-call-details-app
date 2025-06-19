@@ -56,7 +56,7 @@ if submitted:
                 (timestamp, name, dob,reason, suicidal, meds, med_list, diagnoses, emotional_state, support, hospitalized, emergency_contact)
                  VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                  """
-                values =(
+            values =(
                     submission_time,
                     name,
                     dob,
