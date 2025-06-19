@@ -19,7 +19,7 @@ from datetime import datetime
 submission_time = datetime.now()
 # st.write("Secrets loaded:", st.secrets.get("snowflake", {})) 
 import pandas as pd
-cursor.execute("SELECT CURRENT_USER(), CURRENT_ROLE(), CURRENT_TIMESTAMP()")
+# cursor.execute("SELECT CURRENT_USER(), CURRENT_ROLE(), CURRENT_TIMESTAMP()")
 
 
 try:
@@ -70,6 +70,7 @@ if submitted:
             """
 
             cursor.execute(insert_query, values)
+            conn.commit()
             st.success("Your response has been submitted successfully.")
         except Exception as e:
             st.error(f"Failed to insert data: {e}")
