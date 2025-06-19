@@ -45,32 +45,32 @@ with st.form("admission_form"):
     submitted = st.form_submit_button("Submit")
 
 
-# if submitted:
-#         try:
-#             # Convert list to comma-separated string
-#             diagnoses_str = ", ".join(diagnoses)
+if submitted:
+        try:
+            # Convert list to comma-separated string
+            diagnoses_str = ", ".join(diagnoses)
 
-#             insert_query = f"""
-#                 INSERT INTO TEST_DB.PUBLIC.mental_health_admissions 
-#                 (timestamp, name, dob,reason, suicidal, meds, med_list, diagnoses, emotional_state, support, hospitalized, emergency_contact)
-#                 VALUES (
-#                     '{submission_time}',
-#                     '{name}',
-#                     '{dob}',
-#                     '{reason}',
-#                     '{suicidal}',
-#                     '{meds}',
-#                     '{med_list}',
-#                     '{diagnoses_str}',
-#                     {emotional_state},
-#                     '{support}',
-#                     '{hospitalized}',
-#                     '{emergency_contact}'
-#                 )
-#             """
+            insert_query = f"""
+                INSERT INTO TEST_DB.PUBLIC.mental_health_admissions 
+                (timestamp, name, dob,reason, suicidal, meds, med_list, diagnoses, emotional_state, support, hospitalized, emergency_contact)
+                VALUES (
+                    '{submission_time}',
+                    '{name}',
+                    '{dob}',
+                    '{reason}',
+                    '{suicidal}',
+                    '{meds}',
+                    '{med_list}',
+                    '{diagnoses_str}',
+                    {emotional_state},
+                    '{support}',
+                    '{hospitalized}',
+                    '{emergency_contact}'
+                )
+            """
 
-#             session.sql(insert_query).collect()
-#             st.success("Your response has been submitted successfully.")
-#         except Exception as e:
-#             st.error(f"Failed to insert data: {e}")
+            session.sql(insert_query).collect()
+            st.success("Your response has been submitted successfully.")
+        except Exception as e:
+            st.error(f"Failed to insert data: {e}")
  
