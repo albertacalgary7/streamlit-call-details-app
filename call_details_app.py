@@ -17,7 +17,7 @@ cursor = conn.cursor()
 # Write directly to the app
 from datetime import datetime
 submission_time = datetime.now()
-st.write("Secrets loaded:", st.secrets.get("snowflake", {})) 
+# st.write("Secrets loaded:", st.secrets.get("snowflake", {})) 
 import pandas as pd
 cursor.execute("SELECT CURRENT_USER(), CURRENT_ROLE(), CURRENT_TIMESTAMP()")
 
